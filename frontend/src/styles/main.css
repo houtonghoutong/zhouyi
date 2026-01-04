@@ -1,0 +1,310 @@
+/* 
+ * 周易占卜 APP 全局样式
+ * 设计风格：古典中国风 + 现代简约
+ */
+
+:root {
+  /* 主色调 - 深邃的紫黑色调，象征神秘与智慧 */
+  --color-bg-primary: #0d0d1a;
+  --color-bg-secondary: #1a1a2e;
+  --color-bg-card: #16213e;
+  --color-bg-card-hover: #1f2b4d;
+  
+  /* 强调色 - 金色，象征尊贵与吉祥 */
+  --color-accent-gold: #d4af37;
+  --color-accent-gold-light: #f4d03f;
+  --color-accent-gold-dark: #b8860b;
+  
+  /* 辅助色 */
+  --color-jade: #00a86b;
+  --color-cinnabar: #e34234;
+  --color-ink: #2c3e50;
+  
+  /* 文字色 */
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: #b8b8b8;
+  --color-text-muted: #6c6c6c;
+  --color-text-gold: #d4af37;
+  
+  /* 边框色 */
+  --color-border: rgba(212, 175, 55, 0.2);
+  --color-border-light: rgba(212, 175, 55, 0.1);
+  
+  /* 阴影 */
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 20px rgba(212, 175, 55, 0.15);
+  
+  /* 字体 */
+  --font-serif: 'Noto Serif SC', 'Songti SC', serif;
+  --font-brush: 'Ma Shan Zheng', cursive;
+  
+  /* 间距 */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  
+  /* 圆角 */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  
+  /* 动画 */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-serif);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  min-height: 100dvh;
+  
+  /* 背景纹理 - 八卦暗纹 */
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+    linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+  background-attachment: fixed;
+}
+
+/* 链接 */
+a {
+  color: var(--color-accent-gold);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-accent-gold-light);
+}
+
+/* 按钮基础样式 */
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* 输入框基础样式 */
+input,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-accent-gold);
+  box-shadow: var(--shadow-glow);
+}
+
+/* 页面容器 */
+.page-container {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+}
+
+/* 卡片 */
+.card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card), var(--shadow-glow);
+}
+
+/* 标题样式 */
+.title-brush {
+  font-family: var(--font-brush);
+  color: var(--color-text-gold);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* 金色分隔线 */
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-accent-gold) 20%,
+    var(--color-accent-gold) 80%,
+    transparent
+  );
+  margin: var(--spacing-lg) 0;
+}
+
+/* 主按钮 */
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-accent-gold-dark), var(--color-accent-gold));
+  color: var(--color-bg-primary);
+  font-weight: 600;
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  transition: all var(--transition-fast);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--color-accent-gold), var(--color-accent-gold-light));
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* 次要按钮 */
+.btn-secondary {
+  background: transparent;
+  color: var(--color-accent-gold);
+  border: 1px solid var(--color-accent-gold);
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.btn-secondary:hover {
+  background: rgba(212, 175, 55, 0.1);
+}
+
+/* 加载动画 */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* 八卦符号样式 */
+.bagua-symbol {
+  font-size: 2rem;
+  color: var(--color-accent-gold);
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+/* 爻线样式 */
+.yao-line {
+  height: 8px;
+  margin: 6px 0;
+  border-radius: 4px;
+  transition: all var(--transition-normal);
+}
+
+.yao-line.yang {
+  background: linear-gradient(90deg, var(--color-accent-gold-dark), var(--color-accent-gold), var(--color-accent-gold-dark));
+}
+
+.yao-line.yin {
+  background: linear-gradient(90deg, var(--color-accent-gold-dark), var(--color-accent-gold), var(--color-accent-gold-dark));
+  position: relative;
+}
+
+.yao-line.yin::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 20%;
+  height: 100%;
+  background: var(--color-bg-primary);
+  transform: translateX(-50%);
+}
+
+.yao-line.changing {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .page-container {
+    padding: var(--spacing-md);
+  }
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent-gold-dark);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-gold);
+}
+
